@@ -1,11 +1,16 @@
-const Pizza = (props) => {
+import {useState} from "react";
+
+const Pizza = ({name,img,price}) => {
+
+    const [pizzaCount, setPizzacount] = useState(0)
+
     return (
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                src={props.img}
+                src={img}
                 alt="Pizza"/>
-            <h4 className="pizza-block__title">{props.name}</h4>
+            <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
                     <li className="active">тонкое</li>
@@ -18,8 +23,8 @@ const Pizza = (props) => {
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {props.price} грн</div>
-                <div className="button button--outline button--add">
+                <div className="pizza-block__price">от {price} грн</div>
+                <div onClick={() => setPizzacount(pizzaCount + 1)} className="button button--outline button--add">
                     <svg
                         width="12"
                         height="12"
@@ -33,7 +38,7 @@ const Pizza = (props) => {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
+                    <i>{pizzaCount}</i>
                 </div>
             </div>
         </div>
