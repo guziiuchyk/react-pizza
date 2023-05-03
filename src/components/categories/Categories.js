@@ -6,8 +6,8 @@ const Categories = () => {
 
     const [activeIndex, setActiveIndex] = useState(0)
 
-    const categoriesListComponents = categoriesList.map((item,index) => {
-        return <li onClick={() => {setActiveIndex(index)}} className={activeIndex === index ? 'active' : ''}>{item}</li>
+    const categoriesListComponents = categoriesList.map((item,i) => {
+        return <li key={i} onClick={() => {setActiveIndex(i)}} className={activeIndex === i ? 'active' : ''}>{item}</li>
     })
 
     return (

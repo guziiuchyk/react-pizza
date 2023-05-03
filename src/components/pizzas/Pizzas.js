@@ -1,12 +1,11 @@
 import Pizza from "./pizza/Pizza";
-import pizzasData from '../../assets/pizzas.json'
 
-const Pizzas = () => {
+const Pizzas = (props) => {
 
-    console.log(pizzasData)
 
-    let pizzas = pizzasData.map((pizza) => {
-        return <Pizza name={pizza.name} img={pizza.imageUrl} price={pizza.price} />
+
+    let pizzas = props.items.map((pizza) => {
+        return <Pizza key={pizza.id} {...pizza} />
     })
     return (
         <div className="content__items">
