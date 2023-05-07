@@ -8,10 +8,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 530px) {
+      flex-direction: column;
+    }
   }
 
   &__logo {
     display: flex;
+    @media (max-width: 530px) {
+      margin-bottom: 20px;
+    }
+    div{
+      white-space: nowrap;
+    }
 
     img {
       margin-right: 15px;
