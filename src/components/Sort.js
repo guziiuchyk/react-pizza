@@ -1,18 +1,19 @@
 import {useState} from "react";
 
-const Sort = ({type, setType}) => {
+const Sort = ({type, setType, orderBy, setOrderBy}) => {
 
-    const sort = ['Популярності','Ціні','Алфавіту'];
-
+    const sort = [
+        {name: 'Популярності', sortProperty:'rating'},
+        {name: 'Ціні',sortProperty: 'price'},
+        {name: 'Алфавіту', sortProperty: 'title'}
+    ];
     const [isVisible, setVisible] = useState(false);
 
     const sortComponents = sort.map((value, i) => <li
-        onClick={() => {setVisible(!isVisible); setType(i)}}
-        className={type === i ? 'active' : ''}
-        key={i}>{value}
-
+        onClick={() => {setVisible(!isVisible); setType(value)}}
+        className={type.sortProperty === value.sortProperty ? 'active' : ''}
+        key={i}>{value.name}
     </li>)
-
     return (
         <div className="sort">
             <div className="sort__label">
@@ -29,15 +30,19 @@ const Sort = ({type, setType}) => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={() => {setVisible(!isVisible)}}>{sort[type]}</span>
+                <span onClick={() => {setVisible(!isVisible)}}>{type.name}</span>
             </div>
             {
                 isVisible && <div className="sort__popup">
                     <ul>
+
                         {sortComponents}
+
                     </ul>
                 </div>
             }
+            <button onClick={orderBy === 'desc' ? () => {setOrderBy('asc')} : undefined} className={orderBy === 'asc' ? 'active' : ''}> ↑ </button>
+            <button onClick={orderBy === 'asc' ? () => {setOrderBy('desc')} : undefined} className={orderBy === 'desc' ? 'active' : ''}> ↓ </button>
         </div>
     )
 }

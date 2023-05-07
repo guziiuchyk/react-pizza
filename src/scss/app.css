@@ -246,6 +246,7 @@ a {
 }
 
 .sort {
+  display: flex;
   position: relative;
 }
 @media (max-width: 1270px) {
@@ -253,7 +254,30 @@ a {
     margin-top: 30px;
   }
 }
+.sort button {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border: 2px solid #655959;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: white;
+  color: #655959;
+  margin: 0 5px;
+  font-size: 19px;
+  line-height: 1px;
+}
+.sort button:hover {
+  border: 2px solid #e78210;
+  color: #e78210;
+}
+.sort button.active {
+  border: 2px solid #e78210;
+  color: #e78210;
+}
 .sort__label {
+  margin-right: 20px;
   display: flex;
   align-items: center;
 }
