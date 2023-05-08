@@ -1,0 +1,32 @@
+.root {
+  position: relative;
+}
+.root .input {
+  margin: 20px 0;
+  padding: 7px 30px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  font-size: 15px;
+}
+.root .input:focus {
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+.root .searchLogo {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 33%;
+  left: 3px;
+}
+.root .closeLogo {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 27px;
+  left: 220px;
+  opacity: 0.4;
+}
+
+/*# sourceMappingURL=search.module.css.map */
