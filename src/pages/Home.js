@@ -15,14 +15,14 @@ const Home = ({searchValue,setSearchValue}) => {
 
     return (
         <div className="container">
-            <Search setSearchValue={setSearchValue} searchValue={searchValue} />
+            <Search  setSearchValue={setSearchValue} searchValue={searchValue} />
             <div className="content__top">
                 <Categories id={categoryId} setId={setCategoryId} />
                 <Sort orderBy={orderBy} setOrderBy={setOrderBy} type={sortType} setType={setSortType}/>
             </div>
 
             <h2 className="content__title">Все пиццы</h2>
-            <Pizzas orderBy={orderBy} sortType={sortType} categoryId={categoryId} />
+            <Pizzas setCategoryId={setCategoryId} searchValue={searchValue} orderBy={orderBy} sortType={sortType} categoryId={categoryId} />
         </div>
     )
 }
