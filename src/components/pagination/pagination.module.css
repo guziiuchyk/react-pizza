@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination li {
+  border-radius: 50%;
+  width: 29px;
+}
+.pagination li a {
+  font-family: "Stylish", sans-serif;
+  font-size: 22px;
+  color: #6e3c09;
+  user-select: none;
+  margin: 0 4px;
+  padding: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.pagination .active {
+  border: 2px solid #f68d06;
+}
+
+/*# sourceMappingURL=pagination.module.css.map */
