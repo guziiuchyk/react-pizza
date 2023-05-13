@@ -1,14 +1,18 @@
 import Pizza from "./Pizza";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Skeleton from "./Skeleton";
+import {SearchContext} from "../../App";
 
-const Pizzas = ({categoryId, sortType, orderBy, searchValue, setCategoryId, currentPage}) => {
+const Pizzas = ({categoryId, sortType, orderBy, setCategoryId, currentPage}) => {
+
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const {searchValue} = useContext(SearchContext)
+
     useEffect(() => {
         setIsLoading(true);
-        const search = searchValue ? `&search=${searchValue}` : '';
+        const search = searchValue ? `&_like=${searchValue}` : '';
         if (searchValue) {
             setCategoryId(0);
         }
