@@ -8,7 +8,6 @@ import React from "react";
 
 const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [categoryId, setCategoryId] = useState(0);
     const [orderBy, setOrderBy] = useState('desc');
 
 
@@ -22,12 +21,12 @@ const Home = () => {
         <div className="container">
             <Search />
             <div className="content__top">
-                <Categories id={categoryId} setId={setCategoryId} />
+                <Categories  />
                 <Sort orderBy={orderBy} setOrderBy={setOrderBy} type={sortType} setType={setSortType}/>
             </div>
 
             <h2 className="content__title">Все пиццы</h2>
-            <Pizzas setCurrentPage={setCurrentPage} currentPage={currentPage} setCategoryId={setCategoryId} orderBy={orderBy} sortType={sortType} categoryId={categoryId} />
+            <Pizzas setCurrentPage={setCurrentPage} currentPage={currentPage} orderBy={orderBy} sortType={sortType}/>
             <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </div>
     )
