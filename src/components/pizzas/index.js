@@ -1,18 +1,21 @@
 import Pizza from "./Pizza";
-import {useContext, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import Skeleton from "./Skeleton";
-import {SearchContext} from "../../App";
 import {useSelector, useDispatch} from "react-redux";
 import {setCategoryId} from "../../redux/slices/filterSlice";
 
-const Pizzas = ({sortType, orderBy, currentPage}) => {
+const Pizzas = ({currentPage}) => {
+
     const categoryId = useSelector((state) => state.filter.caregoryId);
+    const orderBy = useSelector((state) => state.filter.orderBy);
+    const sortType = useSelector((state) => state.filter.sortType);
+    const searchValue = useSelector((state) => state.filter.searchValue);
+
     const dispatch = useDispatch();
 
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const {searchValue} = useContext(SearchContext)
 
     useEffect(() => {
         setIsLoading(true);

@@ -1,6 +1,12 @@
 import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setOrderBy, setSortType} from "../redux/slices/filterSlice";
 
-const Sort = ({type, setType, orderBy, setOrderBy}) => {
+const Sort = () => {
+
+    const dispatch = useDispatch();
+    const orderBy = useSelector((state) => state.filter.orderBy);
+    const type = useSelector(state => state.filter.sortType)
 
     const sort = [
         {name: 'Популярності', sortProperty:'rating'},
@@ -10,9 +16,10 @@ const Sort = ({type, setType, orderBy, setOrderBy}) => {
     const [isVisible, setVisible] = useState(false);
 
     const sortComponents = sort.map((value, i) => <li
-        onClick={() => {setVisible(!isVisible); setType(value)}}
+        onClick={() => {setVisible(!isVisible); dispatch(setSortType(value))}}
         className={type.sortProperty === value.sortProperty ? 'active' : ''}
         key={i}>{value.name}
+
     </li>)
     return (
         <div className="sort">
@@ -41,8 +48,8 @@ const Sort = ({type, setType, orderBy, setOrderBy}) => {
                     </ul>
                 </div>
             }
-            <button onClick={orderBy === 'desc' ? () => {setOrderBy('asc')} : undefined} className={orderBy === 'asc' ? 'active' : ''}> ↑ </button>
-            <button onClick={orderBy === 'asc' ? () => {setOrderBy('desc')} : undefined} className={orderBy === 'desc' ? 'active' : ''}> ↓ </button>
+            <button onClick={orderBy === 'desc' ? () => {dispatch(setOrderBy('asc'))} : undefined} className={orderBy === 'asc' ? 'active' : ''}> ↑ </button>
+            <button onClick={orderBy === 'asc' ? () => {dispatch(setOrderBy('desc'))} : undefined} className={orderBy === 'desc' ? 'active' : ''}> ↓ </button>
         </div>
     )
 }

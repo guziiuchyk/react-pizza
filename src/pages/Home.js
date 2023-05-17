@@ -8,25 +8,17 @@ import React from "react";
 
 const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [orderBy, setOrderBy] = useState('desc');
-
-
-
-    const [sortType, setSortType] = useState({
-        name:'Популярності',
-        sortProperty: 'rating'
-    });
 
     return (
         <div className="container">
             <Search />
             <div className="content__top">
                 <Categories  />
-                <Sort orderBy={orderBy} setOrderBy={setOrderBy} type={sortType} setType={setSortType}/>
+                <Sort/>
             </div>
 
             <h2 className="content__title">Все пиццы</h2>
-            <Pizzas setCurrentPage={setCurrentPage} currentPage={currentPage} orderBy={orderBy} sortType={sortType}/>
+            <Pizzas setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </div>
     )

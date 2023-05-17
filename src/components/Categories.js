@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {setCategoryId} from "../redux/slices/filterSlice";
 const Categories = () => {
     const id = useSelector((state) => state.filter.caregoryId);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const categoriesList = ['Всі',"М'ясні","Вaгетер'яські",'Гриль','Гострі','Закриті',];
 
