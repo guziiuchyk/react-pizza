@@ -3,13 +3,12 @@ import { useEffect, useState} from "react";
 import Skeleton from "./Skeleton";
 import {useSelector, useDispatch} from "react-redux";
 import {setCategoryId} from "../../redux/slices/filterSlice";
+import axios from "axios";
 
-const Pizzas = ({currentPage}) => {
+const Pizzas = () => {
 
-    const categoryId = useSelector((state) => state.filter.caregoryId);
-    const orderBy = useSelector((state) => state.filter.orderBy);
-    const sortType = useSelector((state) => state.filter.sortType);
-    const searchValue = useSelector((state) => state.filter.searchValue);
+    const {categoryId, orderBy, sortType, searchValue} = useSelector((state)=> state.filter)
+    const currentPage = useSelector((state) => state.pagination.currentPage)
 
     const dispatch = useDispatch();
 
@@ -28,14 +27,12 @@ const Pizzas = ({currentPage}) => {
         const order = `&_order=${orderBy}`;
         const page = `&_page=${currentPage}`
 
-        fetch(`http://localhost:3001/pizzas?_limit=4&${page}${category}${sort}${order}${search}`)
-            .then(value => (value.json()))
-            .then(json => {
-                setItems(json);
+        axios.get(`http://localhost:3001/pizzas?_limit=4&${page}${category}${sort}${order}${search}`)
+            .then(res => {
+                setItems(res.data);
                 setIsLoading(false);
-            });
-        window.scrollTo(0, 0)
-    }, [categoryId, sortType, orderBy, searchValue, setCategoryId, currentPage]);
+            })
+    }, [categoryId, sortType, orderBy, searchValue, currentPage, dispatch]);
 
     const skeletonComponents = [...new Array(6)].map((_, index) => (<Skeleton key={index}/>))
     const pizzas = items.map((pizza) => {

@@ -5,9 +5,8 @@ import {setOrderBy, setSortType} from "../redux/slices/filterSlice";
 const Sort = () => {
 
     const dispatch = useDispatch();
-    const orderBy = useSelector((state) => state.filter.orderBy);
-    const type = useSelector(state => state.filter.sortType)
-
+    const {orderBy, sortType} = useSelector(state => state.filter);
+    const type = sortType;
     const sort = [
         {name: 'Популярності', sortProperty:'rating'},
         {name: 'Ціні',sortProperty: 'price'},

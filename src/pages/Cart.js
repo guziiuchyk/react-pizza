@@ -76,7 +76,7 @@ const Car = () => {
                             </div>
                         </div>
                         <div className="cart__item-price">
-                            <b>770 ₽</b>
+                            <b>770 грн</b>
                         </div>
                         <div className="cart__item-remove">
                             <div className="button button--outline button--circle">
@@ -133,7 +133,7 @@ const Car = () => {
                             </div>
                         </div>
                         <div className="cart__item-price">
-                            <b>770 ₽</b>
+                            <b>770 грн</b>
                         </div>
                         <div className="cart__item-remove">
                             <div className="button button--outline button--circle">
@@ -190,7 +190,7 @@ const Car = () => {
                             </div>
                         </div>
                         <div className="cart__item-price">
-                            <b>770 ₽</b>
+                            <b>770 грн</b>
                         </div>
                         <div className="cart__item-remove">
                             <div className="button button--outline button--circle">
@@ -247,7 +247,7 @@ const Car = () => {
                             </div>
                         </div>
                         <div className="cart__item-price">
-                            <b>770 ₽</b>
+                            <b>770 грн</b>
                         </div>
                         <div className="cart__item-remove">
                             <div className="button button--outline button--circle">
@@ -269,7 +269,7 @@ const Car = () => {
                 <div className="cart__bottom">
                     <div className="cart__bottom-details">
                         <span> Всего пицц: <b>3 шт.</b> </span>
-                        <span> Сумма заказа: <b>900 ₽</b> </span>
+                        <span> Сумма заказа: <b>900 грн</b> </span>
                     </div>
                     <div className="cart__bottom-buttons">
                         <Link to="/" className="button button--outline button--add go-back-btn">

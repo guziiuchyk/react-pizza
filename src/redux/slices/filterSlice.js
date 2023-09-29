@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    caregoryId:0,
+    categoryId:0,
     orderBy:"desc",
     sortType:{
         name:'Популярності',
@@ -15,7 +15,7 @@ export const filterSlice = createSlice({
     initialState,
     reducers: {
         setCategoryId: (state,action) => {
-            state.caregoryId = action.payload;
+            state.categoryId = action.payload;
         },
         setOrderBy: (state, action) => {
             state.orderBy = action.payload;
