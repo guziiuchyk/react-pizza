@@ -18,7 +18,7 @@ const Pizzas = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        const search = searchValue ? `&_like=${searchValue}` : '';
+        const search = searchValue ? `&name=${searchValue}` : '';
         if (searchValue) {
             dispatch(setCategoryId(0))
         }

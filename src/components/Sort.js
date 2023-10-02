@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setOrderBy, setSortType} from "../redux/slices/filterSlice";
 
@@ -13,6 +13,20 @@ const Sort = () => {
         {name: 'Алфавіту', sortProperty: 'title'}
     ];
     const [isVisible, setVisible] = useState(false);
+    const sortRef = useRef();
+    useEffect(() => {
+        console.log(123)
+        const handleClickOutsdie = (event) => {
+            if (!event.composedPath().includes(sortRef.current)){
+                setVisible(false)
+            }
+        }
+
+        document.body.addEventListener('click', handleClickOutsdie)
+        return () => {
+            document.body.removeEventListener('click', handleClickOutsdie)
+        }
+    }, []);
 
     const sortComponents = sort.map((value, i) => <li
         onClick={() => {setVisible(!isVisible); dispatch(setSortType(value))}}
@@ -21,7 +35,7 @@ const Sort = () => {
 
     </li>)
     return (
-        <div className="sort">
+        <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
                     width="10"
