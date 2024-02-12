@@ -6,6 +6,9 @@
 **To launch the local server, use:** \
 `npm start`
 
+**For database setup:, use:** \
+`npm server`
+
 **The server will be running at this address:** \
 [http://localhost:3000/](http://localhost:3000/)
 
