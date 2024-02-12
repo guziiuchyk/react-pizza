@@ -11,7 +11,7 @@
 
 ---
 **Links:**\
-[https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)
+[https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)\
 [https://github.com/guziiuchyk/react-pizza](https://github.com/guziiuchyk/react-pizza)
 
 ---
