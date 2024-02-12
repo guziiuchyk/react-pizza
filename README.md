@@ -6,7 +6,7 @@
 **To launch the local server, use:** \
 `npm start`
 
-**For database setup:, use:** \
+**For database setup, use:** \
 `npm server`
 
 **The server will be running at this address:** \
